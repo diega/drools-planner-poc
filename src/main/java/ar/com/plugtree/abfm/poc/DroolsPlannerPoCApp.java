@@ -42,15 +42,16 @@ public class DroolsPlannerPoCApp {
         List<Technician> technicians = technicianParser.parse();
         List<ServiceDelivery> deliveries = serviceDeliveryParser.parse();
 
-        DroolsPlannerPoCApp plannerApp = new DroolsPlannerPoCApp();
-        deliveries = plannerApp.findOptimalServiceDeliveries( technicians,
-                                                              deliveries );
         logger.info( "* planned deliveries:" );
         printTabbedList( deliveries );
         logger.info( "* technician candidates: " );
         printTabbedList( technicians );
-        logger.info( "* best technician for :" );
-        //logger.info( "----------> {}", technician.toString() );
+
+        DroolsPlannerPoCApp plannerApp = new DroolsPlannerPoCApp();
+        deliveries = plannerApp.findOptimalServiceDeliveries( technicians,
+                                                              deliveries );
+        logger.info( "* best technicians :" );
+        printTabbedList( deliveries );
     }
 
     private static void printTabbedList(List< ? extends Object> objects) {
