@@ -39,7 +39,8 @@ public class ServiceDelivery {
     @Override
     public String toString() {
         return "service in " + location.name()
-                + " required " + Arrays.toString( neededSkills.toArray() );
+                + " requires " + Arrays.toString( neededSkills.toArray() )
+                + " assigned to " + ((technician == null) ? "nobody" : technician.toString());
     }
 
     public Set<Skill> getNeededSkills() {
