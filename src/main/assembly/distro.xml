@@ -14,10 +14,12 @@
     <file>
       <source>src/main/exe/run.bat</source>
       <fileMode>0555</fileMode>
+      <filtered>true</filtered>
     </file>
     <file>
       <source>src/main/exe/run.sh</source>
       <fileMode>0555</fileMode>
+      <filtered>true</filtered>
     </file>
     <file>
       <source>src/main/dist/log4j.xml</source>
@@ -35,7 +37,6 @@
   <dependencySets>
     <dependencySet>
       <outputDirectory>libs/</outputDirectory>
-<!--      <outputFileNameMapping>${artifactId}-${baseVersion}.${extension}</outputFileNameMapping>-->
       <scope>runtime</scope>
     </dependencySet>
   </dependencySets>
