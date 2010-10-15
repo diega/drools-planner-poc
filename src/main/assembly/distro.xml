@@ -13,25 +13,25 @@
     </file>
     <file>
       <source>src/main/exe/run.bat</source>
-      <fileMode>0555</fileMode>
+      <fileMode>0744</fileMode>
       <filtered>true</filtered>
     </file>
     <file>
       <source>src/main/exe/run.sh</source>
-      <fileMode>0555</fileMode>
+      <fileMode>0744</fileMode>
       <filtered>true</filtered>
     </file>
     <file>
       <source>src/main/dist/log4j.xml</source>
-      <fileMode>0555</fileMode>
+      <fileMode>0644</fileMode>
     </file>
     <file>
       <source>src/main/dist/services.dat</source>
-      <fileMode>0555</fileMode>
+      <fileMode>0644</fileMode>
     </file>
     <file>
       <source>src/main/dist/technicians.dat</source>
-      <fileMode>0555</fileMode>
+      <fileMode>0644</fileMode>
     </file>
   </files>
   <dependencySets>
