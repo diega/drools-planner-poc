@@ -9,28 +9,25 @@ global SimpleScoreCalculator scoreCalculator;
 
 rule "sameCity"
     when
-        $sd : ServiceDelivery($serviceLoc : location, $tec : technician)
-        Technician(this == $tec, location != $serviceLoc)
+        $sd : ServiceDelivery($serviceLoc : location, technician.location != $serviceLoc)
     then
-        insertLogical(new IntConstraintOccurrence("sameCity", 1, $sd, $tec));
+        insertLogical(new IntConstraintOccurrence("sameCity", 1, $sd));
 end
 
 rule "isBusy"
     when
-        $sd : ServiceDelivery($serviceLoc : location, $tec : technician)
-        Technician(this == $tec, busy == true)
+        $sd : ServiceDelivery($serviceLoc : location, technician.busy == true)
     then
-        insertLogical(new IntConstraintOccurrence("isBusy", 6, $sd, $tec));
+        insertLogical(new IntConstraintOccurrence("isBusy", 6, $sd));
 end
 
 rule "skillMatch"
     when
         $sd : ServiceDelivery($neededSkills : neededSkills, $tec : technician)
-        Technician(this == $tec, $techSkills : skills)
     then
         Set<Skill> tempSkills = EnumSet.copyOf($neededSkills);
-        tempSkills.removeAll($techSkills);
-        insertLogical(new IntConstraintOccurrence("skillMatch", tempSkills.size(), $sd, $tec));
+        tempSkills.removeAll($tec.getSkills());
+        insertLogical(new IntConstraintOccurrence("skillMatch", tempSkills.size(), $sd));
 end
 
 rule "hardConstraintsBroken"

@@ -40,10 +40,7 @@ public class TechniciansSolution
 
     @Override
     public Collection< ? extends Object> getFacts() {
-        List<Object> facts = new ArrayList<Object>(technicians.size() + serviceDeliveries.size());
-        facts.addAll( technicians );
-        facts.addAll( serviceDeliveries );
-        return facts;
+        return serviceDeliveries;
     }
 
     @Override
